@@ -421,7 +421,7 @@ async function convertTextToPath(item) {
 		var str = item.fontFamily;
 
 		font = await
-		$.getJSON("https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCNBBusB9zyVa8PjkgxTxF-Ed0cwCD0RLI").then(function(response){ 
+		$.getJSON("https://www.googleapis.com/webfonts/v1/webfonts?key=").then(function(response){ 
 			var items = response.items;
 			items.forEach(function(fontitem){
 			if (fontitem.family == str) {
