@@ -1,0 +1,680 @@
+
+
+{{ 'bootstrap-iso.css' | asset_url | stylesheet_tag }}
+	
+{% style %}
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto:700|Roboto:italic|Roboto:700italic|Open+Sans|Open+Sans:700|Open+Sans:italic|Open+Sans:700italic|Montserrat|Montserrat:700|Montserrat:italic|Montserrat:700italic|Poppins|Poppins:700|Poppins:italic|Poppins:700italic|Noto+Sans|Noto+Sans:700|Noto+Sans:italic|Noto+Sans:700italic|Cabin|Cabin:700|Cabin:italic|Cabin:700italic|Lato|Lato:700|Lato:italic|Lato:700italic|Merriweather|Merriweather:700|Merriweather:italic|Merriweather:700italic|Nunito|Nunito:700|Nunito:italic|Nunito:700italic|Rokkitt|Rokkitt:700|Rokkitt:italic|Rokkitt:700italic|Pacifico|Caveat|Permanent+Marker|Lugrasimo|Dancing+Script|Fondamento|Noto+Emoji:700');
+
+/* fix auto zoom on apple devices form inputs */  
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+
+/* LOAD EMOJI FONT */  
+@font-face {
+    font-family: 'Noto Emoji';
+    src: url('https://cdn.shopify.com/s/files/1/0680/0510/1884/files/noto.woff2?v=1686619063') format('woff2'),
+	url('https://cdn.shopify.com/s/files/1/0680/0510/1884/files/noto.ttf?v=1686619063') format('truetype'),
+        url('https://cdn.shopify.com/s/files/1/0680/0510/1884/files/noto.woff?v=1686619063') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/* LOAD EMOJI Bold FONT */ 
+@font-face {
+    font-family: 'Noto Emoji';
+    src: url('https://cdn.shopify.com/s/files/1/0680/0510/1884/files/noto.woff2?v=1686619063') format('woff2'),
+	url('https://cdn.shopify.com/s/files/1/0680/0510/1884/files/noto.ttf?v=1686619063') format('truetype'),
+        url('https://cdn.shopify.com/s/files/1/0680/0510/1884/files/noto.woff?v=1686619063') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.glyph-grid-list-char[_ngcontent-ng-c723244933] {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: #202124;
+    font: inherit;
+    font-size: 32px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+	font-family: 'Noto Emoji' !important;
+}
+.engravertext {
+	font-family: 'Noto Emoji' !important;
+}
+/* ***************** */
+.emojibox {
+	width: 360px;
+    height: 365px;
+    min-height: 230px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    --border-radius: 10px;
+    --category-icon-size: 18px;
+
+    --font-size: 16px;
+    --preview-placeholder-size: 21px;
+    --preview-title-size: 1.1em;
+    --preview-subtitle-size: .9em;
+    --shadow-color: 0deg 0% 0%;
+    --shadow: .3px .5px 2.7px hsl(var(--shadow-color)/.14),.4px .8px 1px -3.2px hsl(var(--shadow-color)/.14),1px 2px 2.5px -4.5px hsl(var(--shadow-color)/.14);
+    display: flex;
+	margin-top:10px;
+margin-bottom:20px;
+padding:5px;
+}
+.emojiscroll{
+	height: 220px;
+    min-height: 230px;
+    position: relative;
+	flex: auto;
+	display:block;
+	padding-right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#searchemoji {
+    width: 100%;
+    transition-duration: var(--duration);
+    transition-property: background-color,box-shadow;
+    transition-timing-function: var(--easing);
+    border-radius: 10px;
+    outline: 0;
+    padding: 10px 2em 10px 2.2em;
+    display: block;
+	border-color:#b4b4b4;
+	font-family: 'inconsolata';
+}
+.buttoncontainer{
+	width:460px;
+
+}
+
+.spancanvas{
+	width: 360px;
+	grid-column: 1;
+  grid-row: 1;
+  display: inline;
+    float: none;
+	font-size: 16px;
+	line-height: 140%;
+}
+.spaneditor{
+	width: 360px;
+	grid-column: 1;
+  grid-row: 2;
+  align-items: center;
+        justify-content: center;
+		margin-top: 0px;
+}
+.container1{
+	display: grid;
+}
+
+/*style slider custom for site*/
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 200px;
+      -webkit-appearance: none;
+      background-color: #9a905d;
+	  margin-left: 5px;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 20px;
+      -webkit-appearance: none;
+      color: #13bba4;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 20px;
+      -webkit-appearance: none;
+      height: 20px;
+      cursor: ew-resize;
+      background: #434343;
+      box-shadow: -80px 0 0 80px #43e5f7;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #9a905d;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #43e5f7; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #9a905d;
+}
+
+#drawing-mode-options{
+	color:#000;
+}
+#previewimg{
+	background-color:#fcda9b;
+	width:240px;
+	height:240px;
+	border: 1px solid #000;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	color:#000;
+	text-align:center;
+	font-size:16px;
+	padding:4px;
+}
+#previewimglabel{
+	width:240px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	color:#000;
+	text-align:center;
+	font-size:16px;
+	padding:4px;
+}
+
+{% endstyle %}
+
+  <!--compiled css with "less compiler" for windows so bootstrap only affects bootstrap-iso-->
+  <div class="bootstrap-iso">
+
+    <div class="container1">
+		
+		<div class="spancanvas">		
+		<h2>DESIGN YOUR PENDANT</h2>
+<!--accordion guide***********************-->  
+		<div class="product__accordion accordion quick-add-hidden" style="margin-bottom:5px;">
+			<details id="Details-collapsible-row-0-template--20668267856188__main">
+			  <summary role="button" aria-expanded="false" aria-controls="ProductAccordion-collapsible-row-0-template--20668267856188__main">
+				<div class="summary__title">
+				  <svg class="icon icon-accordion" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M18.5 1.5H1.5L1.5 18.5H18.5V1.5ZM1.5 0.5C0.947715 0.5 0.5 0.947715 0.5 1.5V18.5C0.5 19.0523 0.947715 19.5 1.5 19.5H18.5C19.0523 19.5 19.5 19.0523 19.5 18.5V1.5C19.5 0.947715 19.0523 0.5 18.5 0.5H1.5Z" fill-rule="evenodd"></path>
+  <path d="M14.9975 6.09084C15.201 6.27746 15.2147 6.59375 15.0281 6.79728L8.91631 13.4627C8.82231 13.5652 8.68987 13.6239 8.55079 13.6247C8.41172 13.6256 8.27857 13.5684 8.18335 13.4671L4.99513 10.0731C4.80606 9.87179 4.81596 9.55536 5.01723 9.3663C5.21849 9.17723 5.53492 9.18713 5.72399 9.3884L8.54335 12.3897L14.291 6.12145C14.4776 5.91791 14.7939 5.90421 14.9975 6.09084Z"></path></svg>
+				  <h2 class="h4 accordion__title inline-richtext">
+					Design Guide
+				  </h2>
+				</div>
+				<svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+</path></svg>
+
+			  </summary>
+			  <div class="accordion__content rte" id="ProductAccordion-collapsible-row-0-template--20668267856188__main">
+				<p><span class="metafield-multi_line_text_field">1.) Add text and/or emojis to create something completely unique. <br>
+				2.) Click anywhere on the mini canvas to deselect objects.<br>
+				3.) For best results, <b>center your engraving</b> using the snap guidelines on the canvas.<br>
+				4.) <b>Click "Save Engraving" before adding to cart or buying. Have fun!</b></span></p>
+				
+			  </div>
+			</details>
+		  </div>
+<!--end accordion***********************-->  
+
+			<!--editing button functions for elements on canvas***********************-->    
+			<div align="center" style="min-height: 32px;">
+				<div class="clearfix">
+					<div class="btn-group inline pull-left" id="texteditor" style="display:none">						  
+				
+
+						<select id="font-family" class="select__select"><i class="icon-font" style="width:19px;height:19px;"></i></select>
+
+						<button id="text-bold" class="btn" data-original-title="Bold"><img src="{{ 'font_bold.png' | asset_url }}" height="" width=""></button>
+						<button id="text-italic" class="btn" data-original-title="Italic"><img src="{{ 'font_italic.png' | asset_url }}" height="" width=""></button>
+						<button id="text-strike" class="btn" title="Strike" style=""><img src="{{ 'font_strikethrough.png' | asset_url }}" height="" width=""></button>
+						 <button id="text-underline" class="btn" title="Underline" style=""><img src="{{ 'font_underline.png' | asset_url }}"></button>
+
+						  <!--- Background <input type="hidden" id="text-bgcolor" class="color-picker" size="7" value="#ffffff"> --->
+					</div>							  
+					<div class="pull-right" align="" id="imageeditor" style="display:none">
+					  <div class="btn-group">										      
+						 
+						  <button id="remove-selected" class="btn" title="Delete selected item"><i class="icon-trash" style="height:19px;"></i></button>
+					  </div>
+					</div>			  
+				</div>												
+			</div>
+			<!--/editing buttons*******************-->	
+
+		<!--	CANVAS      -->					
+			<div id="engraveDiv" class="page" style="width: 360px; height: 360px; position: relative; background-color: rgb(255, 255, 255);">
+				
+				<img id="previewpic" src="{{ 'previewpic2.jpg' | asset_url }}" width="360" height="360"></img>
+				<!--	drawing area square      -->	
+				<div id="drawingArea" style="position: absolute;top: 60px;left: 60px;z-index: 10;width: 240px;height: 240px;">					
+					<canvas id="tcanvas" width="240" height="240" class="hover" style="-webkit-user-select: none; border: 1px solid black;"></canvas>
+				</div>
+				<!--	drawing options      -->
+				<button _ngcontent-ng-c723244933="" id="drawing-mode" style="margin: 5px 0 5px 0; position:absolute; bottom:3px; right:10px; padding:12px; background-color:black; color:white; font-size:26px;" class="glyph-grid-list-char ng-star-inserted" aria-label="Glyph ✏️">✏️</button>
+				<div id="drawing-mode-options" style="display:none; position:absolute; bottom:0px; left:5px; padding:5px 5px 10px 10px;">
+					<label for="drawing-line-width">Width:</label>
+					<span id="sliderAmount">5</span><input type="range" value="5" min="5" max="15" id="drawing-line-width" onchange="updateSlider(this.value)" style="background: #000;">
+					</div>
+				<!--	clear canvas      -->
+				<button _ngcontent-ng-c723244933="" style="margin: 5px 0 5px 0; position:absolute; top:0px; right:178px; padding:13px 12px 13px 12px; background-color:black; color:white; font-size:26px;" class="glyph-grid-list-char ng-star-inserted" aria-label="Glyph 💣" onclick="clearcanvas()">💣</button>
+				
+				 <!--	Add Text      -->
+				<button id="add-text" style="font-size: 14px; letter-spacing: 2px; font-family: 'Inconsolata'; margin: 5px 0 5px 0; position:absolute; top:0px; left:10px; padding:13px 14px 13px 14px; background-color:black; color:white;">Add Text</button>
+				<!--	Save Canvas      -->
+				<button style="font-size: 14px; letter-spacing: 2px; font-family: 'Inconsolata'; margin: 5px 0 5px 0; position:absolute; top:0px; right:10px; padding:13px; background-color:black; color:white;" onclick="savepng()">Save Engraving</button>
+			</div>
+						<!--	canvas buttons      -->	
+	
+
+
+	<!--	/CANVAS		-->
+
+	<div id="previewimglabel"></div>
+<div id="previewimg"></div>
+</div>
+<!-- /span6 -->
+	
+		    <div class="spaneditor">
+		    	
+				 <!-- Add custom text to engraving -->
+				 <!-- <div class="field">
+					<input class="field__input engravertext" id="text-string" type="text" value placeholder="add text here...">
+					<label class="field__label" for="text-string">Add Engraveable Text Here...</label>									
+					<button id="add-text" class="btn" title="Add text"><i class="icon-share-alt"></i></button>
+					<hr>
+				  </div>	-->			
+					
+				  <!-- emoji and clipart selections -->
+				    	<div class="emojibox">
+							<div id="tabs" class="tabbable"> <!-- Only required for left/right tabs -->
+								<ul class="nav nav-tabs">
+									<li class="active"><a href="#tab1" data-toggle="tab">😀</a></li>				    
+								  <li><a href="#tab2" data-toggle="tab">💁</a></li>
+								  <li><a href="#tab3" data-toggle="tab">🙈</a></li>
+								  <li><a href="#tab4" data-toggle="tab">🍒</a></li>
+								  <li><a href="#tab5" data-toggle="tab">✈️</a></li>
+								  <li><a href="#tab6" data-toggle="tab">🎉</a></li>
+								  <li><a href="#tab7" data-toggle="tab">📞</a></li>
+								  <li><a href="#tab8" data-toggle="tab">❤️</a></li>
+								</ul>
+							
+							<!-- emoji search function -->
+								<div class="searchemojicontainer">							
+									<input type="text" name="search" id="searchemoji" class="form-control" placeholder="Search Emojis"/>
+								   <ul class="list-group" id="result"></ul>
+								   <br />
+								  </div>
+
+					<!-- content for each emoji tab, separated by tab id tab1, tab2 etc -->
+					<div class="emojiscroll">
+						<!-- search result for emojis -->
+						<div id="searchresult" style="transition-property: opacity, transform; font-family: &quot;Noto_Emoji variant0&quot;, Tofu; font-weight: 400; font-style: normal; font-stretch: normal; font-optical-sizing: auto; text-align: start; line-height: initial; opacity: 1; transition-duration: 350ms;"></div>
+							
+						<div class="tab-content">
+
+								<!-- include all emoji tabs -->
+								{% include 'tabs.liquid' %}
+
+						
+				    </div>
+				  </div>								
+		    </div>		
+		</div>
+<!-- /end emojibox, tabbable, tab-content, emojiscroll-->
+
+				
+	
+		    </div>
+		<!-- /span3 -->
+
+    </div>
+	<!-- /container -->
+ 
+	
+	</div>
+	<!-- /bootstrapiso -->
+	
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->   
+
+	<script src="{{ 'fabric3.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'engraveEditor.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'opentype2.js' | asset_url }}" defer="defer"></script>
+	<script src="{{ 'fontfaceobserver.js' | asset_url }}" defer="defer"></script>
+	
+	<!-- prevent add to cart if engraving not saved -->
+	<script defer="defer">
+
+		//function to inform if engraving not saved when trying to check out
+	window.addEventListener('load', function() {
+		$('.product-form__buttons').find(':button').on('click', function(){
+			if( document.getElementById("uploadimage").files.length == 0 ){
+				alert( "You need to click the  \"Save Engraving\" button above before checking out :)" );
+				event.preventDefault();
+			}
+
+			});
+
+			//remove additional payment buttons because they do not carry over picture properly
+		//$('.shopify-payment-button').remove();
+
+		/* 	$('.shopify-payment-button').on('click', function(){
+					alert('test');
+			if( document.getElementById("uploadimage").files.length == 0 ){
+				alert( "You need to save an engraving before checking out :)" );
+				event.preventDefault();
+				return false;
+			}
+
+			}); */
+
+	}); 
+		/////////////////////////////////////
+	</script>
+
+		<!-- screenshot script for png file --> 
+	<script>
+		//function for append image
+		async function appendimage(){
+			// save canvas image as data url (png format by default)
+			var dataURL = canvas.toDataURL();
+	
+			var image = new Image();
+			image.src = dataURL;
+	
+			$("#previewimg").empty();
+			$("#previewimglabel").empty();
+			document.getElementById("previewimglabel").append("If everything looks good below, you can add to cart");
+			document.getElementById("previewimg").appendChild(image);
+	  }
+
+
+		//function for checking if canvas is blank
+		function isCanvasBlank(canvas) {
+			const context = canvas.getContext('2d');
+		  
+			const pixelBuffer = new Uint32Array(
+			  context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+			);
+		  
+			return !pixelBuffer.some(color => color !== 0);
+		  }
+
+// convert a single text object to a path object
+async function convertTextToPath(item) {
+		//check #1  if font is bold or italic to load the right font library
+	
+		var str = item.fontFamily;
+
+		font = await
+		$.getJSON("https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCNBBusB9zyVa8PjkgxTxF-Ed0cwCD0RLI").then(function(response){ 
+			var items = response.items;
+			items.forEach(function(fontitem){
+			if (fontitem.family == str) {
+				if (item.fontWeight === 'bold' && item.fontStyle !== 'italic'){
+				fontFileUrl = fontitem.files["700"];
+					} 			 
+				else if (item.fontWeight === 'bold' && item.fontStyle === 'italic'){
+					fontFileUrl = fontitem.files["700italic"]; 
+				}
+				else if (item.fontWeight !== 'bold' && item.fontStyle === 'italic'){
+					fontFileUrl = fontitem.files["italic"]; 
+				}
+				else if (item.fontWeight !== 'bold' && item.fontStyle !== 'italic'){
+					fontFileUrl = fontitem.files["regular"]; 
+				}
+				}
+			});
+			return opentype.load(fontFileUrl);
+		});
+
+
+		//#2 calculate for offset between opentype.js and farbic.js
+
+		// get properties of fabric.js object
+		let item_center = item.getPointByOrigin('center', 'center');
+		let [type, string, fontSize] = [item.type, item.text, item.fontSize];
+		// We need to calculate left and top from the center because the calculation
+		// below depends on the *unrotated* left and top. It appears that left and top
+		// values change after rotation (though, curiously height and width are stable).
+		let [left, top, height, width] = [item_center.x - item.width / 2.0, 
+										  item_center.y - item.height / 2.0, 
+										  item.height, 
+										  item.width];
+		/**
+		* Get metrics and ratios from font
+		* to calculate absolute offset values according to font size 
+		*/
+		let unitsPerEm = font.unitsPerEm;
+		let ratio = fontSize / unitsPerEm;
+		// font.descender is a negative value - hence Math.abs()
+		let [ascender, descender] = [font.ascender, Math.abs(font.descender)];
+		let ascenderAbs = Math.ceil(ascender * ratio);
+		let descenderAbs = Math.ceil(descender * ratio);
+		let lineHeight = (ascender + descender) * ratio;
+
+		/**
+		* calculate difference between font path bounding box and 
+		* canvas bbox (including line height)
+		*/
+		let font2CanvasRatio = 1 / lineHeight * height;
+		let baselineY = top + ascenderAbs * font2CanvasRatio;
+		// Create path object from font
+		path = font.getPath(string, left, baselineY, fontSize);
+		let pathData = path.toPathData();
+
+		// render on canvas
+		const outlinetextpath = new fabric.Path(pathData, {
+			fill: '#c7c6c3',
+			borderColor: 'gray',
+			cornerColor: 'black',
+			originX: 'center',
+			originY: 'center'
+		});
+
+		// We need to rotate the Path in the reference frame of the Text object.
+		// Since rotation is around the center of individual objects, we do this
+		// to adjust where the new center should be, relative to the Text reference frame.
+		// This function uses radians.
+		let pre_transform_offset = outlinetextpath.getCenterPoint().subtract(item.getCenterPoint());
+		let post_scale_offset = new fabric.Point(pre_transform_offset.x * item.scaleX,
+			pre_transform_offset.y * item.scaleY);
+		let post_rotation_offset = fabric.util.rotatePoint(outlinetextpath.getCenterPoint(), 
+														   item.getCenterPoint(), 
+														   fabric.util.degreesToRadians(item.angle)).
+												subtract(item.getCenterPoint());
+
+		outlinetextpath.scaleX = item.scaleX;
+		outlinetextpath.scaleY = item.scaleY;
+		outlinetextpath.rotate(item.angle);
+		
+		///////////////*******************************///////////////////////////////
+		//The following is for realignment of new canvas outlines object
+		outlinetextpath.setPositionByOrigin(outlinetextpath.getCenterPoint().
+											subtract(pre_transform_offset).
+											add(post_rotation_offset).
+											subtract(pre_transform_offset).
+											add(post_scale_offset), 'center', 'center');
+		return outlinetextpath;
+}
+
+//execute function for converting all elements to svg pathing, then append image in callback
+async function convertAllTextsToPaths() {
+	//get all objects on canvas
+	obj = canvas.getObjects();
+	
+	//iterate over all canvas objects
+	for(var item of obj) {
+		if (item.type === 'i-text' || item.type === 'text'){  
+			var outlinetextpath = await convertTextToPath(item);
+			canvas.add(outlinetextpath);
+
+			//remove original bitmap object
+			canvas.remove(item);
+		}
+		else if (item.type === 'path' && item.strokeWidth > 1) {
+			//this is so drawn lines change color on save. EMojis and text have less stroke width
+			item.set("stroke", '#c7c6c3');
+    		canvas.renderAll();
+		}
+	}
+	//end foreach
+
+	//remove dotted lines or border in case so it doesn't get turned into svg
+
+	canvas.remove(lineh);
+	canvas.remove(linev);
+	canvas.remove(line1);
+	canvas.remove(line2);
+	canvas.remove(line3);
+	canvas.remove(line4);
+	
+	canvas.renderAll();
+	// Download/export svg
+	upDateSVGExport(canvas);
+	canvas.on('object:modified', function(e) {
+		//console.log('changed')
+		upDateSVGExport(canvas);
+	});
+}
+//end function convertAllTextsToPaths
+
+function upDateSVGExport(canvas) {
+	var svgOut = canvas.toSVG();
+	let svgbase64 = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgOut)));
+
+	//not sure if having the file data transfer function fire multiple times is efficient
+	const file = new File([svgOut], {type: "image/svg+xml;charset=utf-8"});
+
+	const dT = new DataTransfer();
+	dT.items.add( file );
+	document.querySelector( "#uploadimage" ).files = dT.files;
+}
+
+async function savepng(){
+	//check if canvas is blank
+	var blank = isCanvasBlank(document.getElementById('tcanvas'));
+
+	if (!blank){
+//draw a square on the canvas to test in ezcad
+	/*canvas.add(line1);
+	canvas.add(line2);
+	canvas.add(line3);
+	canvas.add(line4); 
+	canvas.renderAll(); */
+
+	//clear selected item so doesn't appear in saved image
+	canvas.discardActiveObject().renderAll();
+		
+	var context = canvas.getContext('2d');
+
+	////////////////////////////////call functions
+	await convertAllTextsToPaths();
+	appendimage();
+	////////////////////////////////
+
+	//remove square again
+	/*canvas.remove(line1);
+	canvas.remove(line2);
+	canvas.remove(line3);
+	canvas.remove(line4);
+	canvas.renderAll(); */
+	}
+	else {
+		alert ('You haven\'t selected anything to engrave. The canvas is blank.');
+	}
+}
+//end savepng function
+
+</script>
+
+<!-- clear canvas button-->    
+<script>
+	
+function clearcanvas(){
+	if (confirm('Delete everything?')) {
+	const context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	canvas.clear();
+	document.getElementById("previewimg").innerHTML = '';
+	$("#previewimglabel").empty();
+	
+	const file = document.querySelector('#uploadimage');
+    file.value = '';
+	}
+	else {
+	return false;
+}
+}
+/////////////////////////////////////////////////////
+</script>
+	
+<!-- emoji search function-->   
+<script>
+	$(document).ready(function(){
+		$.ajaxSetup({ cache: false });
+
+			//load in json file on page load so search is faster
+			jQuery.ajax({
+			type: "GET",
+			url: "https://cdn.shopify.com/s/files/1/0680/0510/1884/files/searchdata.json?v=1687846335",
+			contentType: "application/json; charset=utf-8",
+			dataType: "json",
+			data: "",
+			async: true,
+			success: function (result) {
+				data = result;
+			},
+			error: function () {   },
+			complete: function () {   }
+		});
+
+		$('#searchemoji').keyup(function(){
+			$('#searchresult').html('');
+			$('#state').val('');
+			var searchField = $('#searchemoji').val();
+			var expression = new RegExp(searchField, "i");
+
+
+			if (searchField !="" && searchField.length >=2){
+								
+		//iterate json array
+				$.each(data, function(value, i){
+					if (value.search(expression) != -1){
+					//iterate through comma lists results to provide individual results
+						$.each(i, function(value, i){
+						// $('#result').append('<li class="list-group-item link-class">'+i+' </span></li>');
+						$('#searchresult').append('<button _ngcontent-ng-c723244933="" role="option" class="glyph-grid-list-char ng-star-inserted" aria-label="Glyph '+i+' " style=""><span class="emojibutton">'+i+'</span></button>');
+						});
+					}
+				});
+			}   
+
+		});
+		
+		//when clicking on the results
+		$('#tab9').on('click', 'li', function() {
+		var click_text = $(this).text().split('|');
+		$('#searchemoji').val($.trim(click_text[0]));
+		$("#tab9").html('');
+		});
+	});
+/////////////////////////////////////////////////////////////////
+</script>
+
+
+ 
